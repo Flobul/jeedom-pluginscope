@@ -1,0 +1,19 @@
+<div class="eqLogic eqLogic-widget allowResize" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" data-category="#category#" style="width:300px;min-height:170px;border-radius:12px;#style#">
+    <div class="widget-name"><span class="cmd refresh pull-right" title="{{État de la collecte}}"><i class="fas fa-network-wired"></i></span><a href="#eqLink#">#name_display#</a></div>
+    <div class="ps-widget-content" style="padding:12px 18px">
+        <div data-ps="state" style="opacity:.7;margin-bottom:12px"></div>
+        <div style="display:flex;justify-content:space-between;gap:20px"><div>↓ {{Reçu}}<strong data-ps="rx_rate" style="display:block;font-size:20px"></strong></div><div>↑ {{Envoyé}}<strong data-ps="tx_rate" style="display:block;font-size:20px"></strong></div></div>
+        <div style="margin-top:12px">{{Internet aujourd’hui}} : <span data-ps="cloud"></span></div>
+        <a href="index.php?v=d&m=pluginscope&p=pluginscope" style="display:block;margin-top:12px">{{Explorer les plugins}} →</a>
+    </div>
+    <script>
+    (function(){
+        const root=document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"]');if(!root)return;
+        const values={rx_rate:#rx_rate#,tx_rate:#tx_rate#,internet_rx:#internet_rx#,internet_tx:#internet_tx#,collector_online:#collector_online#};
+        const format=n=>{let i=0;const u=['o','Kio','Mio','Gio'];while(n>=1024&&i<3){n/=1024;i++;}return n.toLocaleString(undefined,{maximumFractionDigits:1})+' '+u[i];};
+        function render(){root.querySelector('[data-ps=state]').textContent=values.collector_online?'{{Collecte active}}':'{{Collecte arrêtée}}';['rx_rate','tx_rate'].forEach(k=>root.querySelector('[data-ps='+k+']').textContent=format(values[k])+'/s');root.querySelector('[data-ps=cloud]').textContent='↓ '+format(values.internet_rx)+' / ↑ '+format(values.internet_tx);}
+        [['rx_rate',#rx_rate_id#],['tx_rate',#tx_rate_id#],['internet_rx',#internet_rx_id#],['internet_tx',#internet_tx_id#],['collector_online',#collector_online_id#]].forEach(([key,id])=>{if(id)jeedom.cmd.addUpdateFunction(id,function(update){if(!root.isConnected)return;values[key]=Number(update.display_value)||0;render();});});
+        render();
+    })();
+    </script>
+</div>
