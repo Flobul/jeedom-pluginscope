@@ -1,4 +1,5 @@
 /* Shared pure operations for PluginScope tables; no DOM and no network. */
+/* global module */
 (function (root) {
     'use strict';
     const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
