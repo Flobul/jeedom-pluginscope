@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../core/class/pluginscope.class.php';
 if (!isConnect('admin')) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+	throw new Exception(__('401 - Accès non autorisé', __FILE__));
 }
 $plugin = plugin::byId('pluginscope');
 sendVarToJS('eqType', $plugin->getId());

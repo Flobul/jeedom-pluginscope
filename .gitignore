@@ -5,3 +5,13 @@ __pycache__/
 .DS_Store
 .venv/
 /tests/
+
+# Local tests and CI tool caches
+/.phpstan-cache/
+/.eslintcache
+/.stylelintcache
+/.coverage
+/coverage.xml
+/.github/ci/vendor/
+/.github/ci/node_modules/
+*.py[cod]

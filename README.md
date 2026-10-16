@@ -1,5 +1,11 @@
 # PluginScope pour Jeedom
 
+[![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/blob/HEAD/LICENSE)
+[![Language](https://img.shields.io/badge/Language-Python-informational?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope)
+[![Last commit](https://img.shields.io/badge/Last_commit-13/09/2026-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/commits)
+[![Open issues](https://img.shields.io/badge/Open_issues-0-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/issues)
+[![Open pull requests](https://img.shields.io/badge/Open_pull_requests-0-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/pulls)
+
 PluginScope **observe les échanges réseau réels** du serveur Jeedom. Il mesure les octets envoyés/reçus en TCP et UDP, affiche les destinations locales ou Internet et attribue les échanges aux plugins lorsque leur contexte d’exécution est identifiable.
 
 Il ne déduit pas les volumes en analysant le code des plugins. Les données proviennent d’un collecteur Linux eBPF, puis sont agrégées et conservées localement.

@@ -114,17 +114,17 @@ class pluginscope extends eqLogic
         foreach (preg_split('/\R/', (string) config::byKey('refresh_overrides', __CLASS__, '')) as $line) {
             if (preg_match('/^\s*([A-Za-z0-9_]+)\s*=\s*([0-9]+(?:\.[0-9]+)?)\s*$/D', $line, $match)
                 && $match[1] === $id && (float) $match[2] >= 1 && (float) $match[2] <= 7776000) {
-                return array('interval_seconds' => (float) $match[2], 'basis' => 'declared', 'label' => 'Intervalle déclaré dans PluginScope');
+                return array('interval_seconds' => (float) $match[2], 'basis' => 'declared', 'label' => __('Intervalle déclaré dans PluginScope', __FILE__));
             }
         }
         if ($id === 'smartthings') {
             $schedule = trim((string) config::byKey('autorefresh', $id, 'never'));
             if ($schedule === '' || $schedule === 'never') {
-                return array('basis' => 'disabled', 'label' => 'Rafraîchissement automatique désactivé');
+                return array('basis' => 'disabled', 'label' => __('Rafraîchissement automatique désactivé', __FILE__));
             }
             try {
                 return self::scheduleTiming($schedule) + array('basis' => 'configured', 'label' => 'SmartThings · autorefresh', 'schedule' => $schedule);
-            } catch (Throwable $error) { return array('basis' => 'unknown', 'label' => 'Réglage SmartThings non interprétable'); }
+            } catch (Throwable $error) { return array('basis' => 'unknown', 'label' => __('Réglage SmartThings non interprétable', __FILE__)); }
         }
         if ($id === 'localthings') {
             $legacy = config::byKey('poll_interval', $id, 5);
@@ -137,14 +137,14 @@ class pluginscope extends eqLogic
                 else { return array(); }
             }
             return array('basis' => 'configured', 'interval_seconds' => $seconds['online'],
-                'offline_seconds' => $seconds['offline'], 'label' => 'LocalThings · en ligne / hors ligne');
+                'offline_seconds' => $seconds['offline'], 'label' => __('LocalThings · en ligne / hors ligne', __FILE__));
         }
         return array();
     }
 
     public static function importGeoIp($kind)
     {
-        if (!in_array($kind, array('country', 'asn'), true)) { throw new InvalidArgumentException('Type GeoIP invalide'); }
+        if (!in_array($kind, array('country', 'asn'), true)) { throw new InvalidArgumentException(__('Type GeoIP invalide', __FILE__)); }
         try { return self::request('geoip_import', array('kind' => $kind)); }
         catch (Throwable $error) {
             if (!is_file('/var/lib/pluginscope/' . $kind . '-upload.mmdb')) { throw $error; }
@@ -210,7 +210,7 @@ class pluginscope extends eqLogic
     private static function service($operation)
     {
         if (!in_array($operation, array('start', 'stop'), true)) {
-            throw new InvalidArgumentException('Opération interdite');
+            throw new InvalidArgumentException(__('Opération interdite', __FILE__));
         }
         $output = array();
         exec(system::getCmdSudo() . ' /bin/systemctl ' . $operation . ' pluginscope-collector.service pluginscope.service 2>&1', $output, $code);
@@ -281,12 +281,12 @@ class pluginscope extends eqLogic
     public function postSave()
     {
         $definitions = array(
-            'rx_rate' => array('Débit reçu', 'numeric', 'o/s'), 'tx_rate' => array('Débit envoyé', 'numeric', 'o/s'),
-            'rx_day' => array('Reçu aujourd’hui', 'numeric', 'o'), 'tx_day' => array('Envoyé aujourd’hui', 'numeric', 'o'),
-            'local_rx' => array('Local reçu aujourd’hui', 'numeric', 'o'), 'local_tx' => array('Local envoyé aujourd’hui', 'numeric', 'o'),
-            'internet_rx' => array('Internet reçu aujourd’hui', 'numeric', 'o'), 'internet_tx' => array('Internet envoyé aujourd’hui', 'numeric', 'o'),
+            'rx_rate' => array(__('Débit reçu', __FILE__), 'numeric', 'o/s'), 'tx_rate' => array(__('Débit envoyé', __FILE__), 'numeric', 'o/s'),
+            'rx_day' => array(__('Reçu aujourd’hui', __FILE__), 'numeric', 'o'), 'tx_day' => array(__('Envoyé aujourd’hui', __FILE__), 'numeric', 'o'),
+            'local_rx' => array(__('Local reçu aujourd’hui', __FILE__), 'numeric', 'o'), 'local_tx' => array(__('Local envoyé aujourd’hui', __FILE__), 'numeric', 'o'),
+            'internet_rx' => array(__('Internet reçu aujourd’hui', __FILE__), 'numeric', 'o'), 'internet_tx' => array(__('Internet envoyé aujourd’hui', __FILE__), 'numeric', 'o'),
             'local_percent' => array('Part locale', 'numeric', '%'), 'internet_percent' => array('Part Internet', 'numeric', '%'),
-            'attribution_percent' => array('Trafic attribué', 'numeric', '%'), 'collector_online' => array('Collecteur actif', 'binary', ''),
+            'attribution_percent' => array(__('Trafic attribué', __FILE__), 'numeric', '%'), 'collector_online' => array(__('Collecteur actif', __FILE__), 'binary', ''),
             'internet_destinations' => array('Destinations Internet', 'numeric', ''), 'top_plugin' => array('Plugin le plus actif', 'string', ''),
         );
         foreach ($definitions as $id => $definition) {
