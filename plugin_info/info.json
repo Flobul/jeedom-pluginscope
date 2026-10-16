@@ -1,25 +1,25 @@
 {
-  "id": "pluginscope",
-  "name": "PluginScope",
-  "pluginVersion": "0.1.0",
-  "description": {
-    "fr_FR": "Observe en direct les communications réseau de Jeedom et les attribue aux plugins lorsque leur origine est identifiable. Analyse locale, destinations, volumes et historique sans télémétrie.",
-    "en_US": "Observe Jeedom's network communications in real time and attributes them to plugins when their origin is identifiable. Local analysis, destinations, volumes and history without telemetry.",
-    "es_ES": "Observa las comunicaciones de red de Jeedom en tiempo real y las atribuye a los complementos cuando se puede identificar su origen. Análisis local, destinos, volúmenes e historial sin telemetría.",
-    "de_DE": "Beobachtet die Netzwerkkommunikation von Jeedom in Echtzeit und ordnet sie Plugins zu, wenn ihre Herkunft identifizierbar ist. Lokale Analyse, Ziele, Volumen und Verlauf ohne Telemetrie.",
-    "it_IT": "Osserva le comunicazioni di rete di Jeedom in tempo reale e le attribuisce ai plugin quando la loro origine è identificabile. Analisi locale, destinazioni, volumi e cronologia senza telemetria.",
-    "pt_PT": "Observa as comunicações de rede do Jeedom em tempo real e atribui-as aos plugins quando a sua origem é identificável. Análise local, destinos, volumes e histórico sem telemetria."
-  },
-  "licence": "AGPL",
-  "author": "DomoFlo1",
-  "require": "4.5",
-  "os": {
-    "min": 12
-  },
-  "category": "monitoring",
-  "hasDependency": true,
-  "hasOwnDeamon": true,
-  "maxDependancyInstallTime": 30,
+	"id": "pluginscope",
+	"name": "PluginScope",
+	"pluginVersion": "0.1.0",
+	"description": {
+		"fr_FR": "Observe en direct les communications réseau de Jeedom et les attribue aux plugins lorsque leur origine est identifiable. Analyse locale, destinations, volumes et historique sans télémétrie.",
+		"en_US": "Observe Jeedom's network communications in real time and attributes them to plugins when their origin is identifiable. Local analysis, destinations, volumes and history without telemetry.",
+		"es_ES": "Observa las comunicaciones de red de Jeedom en tiempo real y las atribuye a los complementos cuando se puede identificar su origen. Análisis local, destinos, volúmenes e historial sin telemetría.",
+		"de_DE": "Beobachtet die Netzwerkkommunikation von Jeedom in Echtzeit und ordnet sie Plugins zu, wenn ihre Herkunft identifizierbar ist. Lokale Analyse, Ziele, Volumen und Verlauf ohne Telemetrie.",
+		"it_IT": "Osserva le comunicazioni di rete di Jeedom in tempo reale e le attribuisce ai plugin quando la loro origine è identificabile. Analisi locale, destinazioni, volumi e cronologia senza telemetria.",
+		"pt_PT": "Observa as comunicações de rede do Jeedom em tempo real e atribui-as aos plugins quando a sua origem é identificável. Análise local, destinos, volumes e histórico sem telemetria."
+	},
+	"licence": "AGPL",
+	"author": "DomoFlo1",
+	"require": "4.5",
+	"os": {
+		"min": 12
+	},
+	"category": "monitoring",
+	"hasDependency": true,
+	"hasOwnDeamon": true,
+	"maxDependancyInstallTime": 30,
 	"changelog": "https://flobul-domotique.fr/liste-des-versions-du-plugin-pluginscope-pour-jeedom/",
 	"changelog_beta": "https://flobul-domotique.fr/liste-des-versions-du-plugin-pluginscope-pour-jeedom/",
 	"documentation": "https://flobul-domotique.fr/presentation-et-documentation-du-plugin-pluginscope-pour-jeedom/",
