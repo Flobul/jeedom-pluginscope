@@ -1,6 +1,6 @@
 # Sources et dépendances
 
-Le code du plugin est sous AGPL-3.0-or-later, voir `LICENSE`.
+Le code du plugin est sous GPL-3.0-or-later, voir `LICENSE`.
 
 - **Jeedom Core** : API eqLogic/cmd, plugins, crons et AJAX. https://github.com/jeedom/core
 - **BCC / iovisor** : bibliothèque système de chargement eBPF, installée depuis Debian ; licences de ses composants à consulter en amont. https://github.com/iovisor/bcc

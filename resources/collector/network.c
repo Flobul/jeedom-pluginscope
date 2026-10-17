@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 // Socket I/O metadata only. Never read application buffers or environment.
 #include <uapi/linux/ptrace.h>
 #include <uapi/linux/in.h>

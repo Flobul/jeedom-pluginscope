@@ -1,10 +1,10 @@
 # PluginScope pour Jeedom
 
-[![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/blob/HEAD/LICENSE)
-[![Language](https://img.shields.io/badge/Language-Python-informational?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope)
-[![Last commit](https://img.shields.io/badge/Last_commit-13/09/2026-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/commits)
-[![Open issues](https://img.shields.io/badge/Open_issues-0-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/issues)
-[![Open pull requests](https://img.shields.io/badge/Open_pull_requests-0-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/pulls)
+[![Licence](https://img.shields.io/badge/Licence-GPL--3.0-blue?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/blob/HEAD/LICENSE)
+[![Langage](https://img.shields.io/badge/Langage-Python-informational?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope)
+[![Dernière mise à jour](https://img.shields.io/badge/Derniere_mise_a_jour-13/09/2026-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/commits)
+[![Tickets ouverts](https://img.shields.io/badge/Tickets_ouverts-0-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/issues)
+[![Demandes de fusion ouvertes](https://img.shields.io/badge/Demandes_de_fusion_ouvertes-0-brightgreen?style=flat-square)](https://github.com/Flobul/jeedom-pluginscope/pulls)
 
 PluginScope **observe les échanges réseau réels** du serveur Jeedom. Il mesure les octets envoyés/reçus en TCP et UDP, affiche les destinations locales ou Internet et attribue les échanges aux plugins lorsque leur contexte d’exécution est identifiable.
 
@@ -34,7 +34,7 @@ Version initiale : **0.1.0**. Cible : Jeedom 4.5+, Debian 12, noyau Linux 6.1+, 
 
 L’absence d’échanges ne prouve pas qu’un plugin fonctionne sans Internet. Les processus PHP partagés, les scénarios et les services MQTT intermédiaires peuvent rester non attribués. Les appels socket ne sont ni des requêtes HTTP ni les octets Ethernet : en-têtes, retransmissions et chemins d’E/S non couverts ne sont pas inclus.
 
-Les bases GeoLite2 sont téléchargées et validées automatiquement, avec conservation d’une base valide en cas d’échec. Le miroir P3TERX est un tiers ; les données viennent de MaxMind. La recherche de pays reste locale, sans envoi des IP observées. [Provenance et licence](resources/attributions/GEOLITE.md). Le DNS actif, un score d’autonomie et les notifications automatiques ne sont pas activés dans cette première version. Aucun transfert Internet d’analyse, aucune capture de payload et aucun changement de pare-feu.
+Les bases GeoLite2 sont téléchargées et validées automatiquement, avec conservation d’une base valide en cas d’échec. Le miroir P3TERX est un tiers ; les données viennent de MaxMind. La recherche de pays reste locale, sans envoi des IP observées. [Provenance et licence](docs/attributions/GEOLITE.md). Le DNS actif, un score d’autonomie et les notifications automatiques ne sont pas activés dans cette première version. Aucun transfert Internet d’analyse, aucune capture de payload et aucun changement de pare-feu.
 
 ## Vérification
 
@@ -89,3 +89,23 @@ Les tâches partagées `plugin::cron`, `cron5`, `cron10`, `cron15`, `cron30`, `c
 Les noms de processus exacts `homebridge` et `hb-service` sont classés **Homebridge** lorsque le plugin est installé, y compris désactivé si ses processus continuent à communiquer. Un simple processus `node` ne suffit pas. Une preuve de script ou de cron dédié reste prioritaire. Ces règles sont explicites dans les raisons d’attribution et ne sont pas assimilées à une preuve forte du plugin appelant.
 
 Les nouvelles observations utilisent ces règles après actualisation du démon. Les volumes historiques agrégés ne sont pas reclassés. **Core Jeedom**, sans statut de plugin, apparaît dans le filtre **Tous**. La couverture de collecte et les pertes restent indépendantes de ces règles d’attribution.
+
+## Documentation
+
+La documentation détaillée est disponible dans [docs/fr_FR/index.md](docs/fr_FR/index.md).
+
+## Sécurité
+
+Consultez la [politique de sécurité](SECURITY.md) avant de transmettre un rapport ou des journaux. Ne publiez jamais de secret, de jeton ou de mot de passe dans une issue publique.
+
+## Licence
+
+Ce projet est distribué sous licence **GPL-3.0**. Consultez le fichier [LICENSE](LICENSE) pour le texte complet.
+
+---
+
+<p align="center">
+  <a href="https://github.com/sponsors/Flobul">
+    <img src="https://img.shields.io/badge/Sponsoriser%20ce%20projet-%E2%9D%A4-EA4AAA?style=for-the-badge&logo=githubsponsors" alt="Sponsoriser ce projet sur GitHub">
+  </a>
+</p>
